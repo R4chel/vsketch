@@ -20,6 +20,10 @@ def test_circle_radius(vsk: vsketch.Vsketch) -> None:
     assert line_count_equal(vsk, 1)
     assert bounds_equal(vsk, -5, -5, 5, 5)
 
+def test_circle_radius_mode(vsk: vsketch.Vsketch) -> None:
+    vsk.circle(0, 0, radius=5, mode="radius")
+    assert line_count_equal(vsk, 1)
+    assert bounds_equal(vsk, -5, -5, 5, 5)
 
 def test_circle_diameter(vsk: vsketch.Vsketch) -> None:
     vsk.detail(0.01)  # make sure we have a tight bound match
