@@ -53,6 +53,11 @@ def test_circle_mode(
     assert line_count_equal(vsk, 1)
     assert bounds_equal(vsk, *expected)
 
+def test_negative_radius(vsk: vsketch.Vsketch) -> None:
+    vsk.circle(0, 0, -2)
+    assert line_count_equal(vsk, 1)
+    assert bounds_equal(vsk, -2, -2, 2, 2)
+
 
 def test_circle_bad_args(vsk: vsketch.Vsketch) -> None:
     with pytest.raises(ValueError):
